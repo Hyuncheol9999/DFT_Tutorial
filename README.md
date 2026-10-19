@@ -51,4 +51,36 @@ This in turn means low energies, so we can summarize the result as follows:
 > For string theory to be well defined at low energies, Einstein's equations must hold. Therefore, Einstein's theory of gravity is the low-energy effective theory of string theory.
 
 
-1
+### 2. T-Duality
+
+The string theory action we saw earlier is called the worldsheet action, and its full extension is given as follows:
+
+$$S[x^{\mu},\gamma^{ab}]=-\frac{1}{4\pi\alpha'}\int\mathrm{d}^2\sigma\left(\sqrt{-\gamma}\gamma^{ab}g_{\mu\nu}(x)\partial_{a}x^{\mu}\partial_{b}x^{\nu}+\epsilon^{ab}B_{\mu\nu}(x)\partial_{a}x^{\mu}\partial_{b}x^{\nu}+\alpha'\sqrt{-\gamma}R(\gamma)\phi(x)\right).$$
+
+Here, $B_{\mu\nu}$ is called the Kalb--Ramond field, and $\phi$ is called the dilaton.
+It is important to interpret the above action physically.
+The field $g_{\mu\nu}$ is interpreted as the curvature of spacetime, that is, gravity.
+On the other hand, the newly added fields $B_{\mu\nu}$ and $\phi$ appear from the extension of the worldsheet action, so they are usually interpreted as matter that sources gravity.
+However, string theory has a property called T-duality, and when we apply it, these variables transform as follows:
+
+$$\begin{aligned}
+&g_{yy}\to\frac{1}{g_{yy}},
+&&g_{yi}\to\frac{B_{yi}}{g_{yy}},
+&&B_{yi}\to\frac{g_{yi}}{g_{yy}},
+\\
+&g_{ij}\to g_{ij}-\frac{g_{yi}g_{yj}-B_{yi}B_{yj}}{g_{yy}},
+&&B_{ij}\to B_{ij}-\frac{g_{yi}B_{yj}-B_{yi}g_{yj}}{g_{yy}},
+&&\Phi\to\Phi-\frac{1}{2}\ln g_{yy},
+\end{aligned}$$
+
+where we decomposed the spacetime coordinates as $x^{\mu}=(y,x^{i})$ for convenience.
+In this way, the fact that $(g,B,\phi)$ transform into one another suggests that $B$ and $\phi$ can also be interpreted as gravitational fields.
+Indeed, in DFT, these quantities are combined to define the following block matrix.
+DFT is the framework in which this quantity is interpreted as a gravitational field and physical phenomena are discussed in terms of it.
+
+$$\mathcal{H}_{AB}=\begin{pmatrix}g^{-1}&-g^{-1}B
+\\
+Bg^{-1}&g-Bg^{-1}B\end{pmatrix},\qquad e^{-2d}=e^{-2\phi}\sqrt{-g}.$$
+
+
+## II. a
