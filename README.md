@@ -78,9 +78,11 @@ In this way, the fact that $(g,B,\phi)$ transform into one another suggests that
 Indeed, in DFT, these quantities are combined to define the following block matrix.
 DFT is the framework in which this quantity is interpreted as a gravitational field and physical phenomena are discussed in terms of it.
 
-$$\mathcal{H}_{AB}=\begin{pmatrix}g^{-1}&-g^{-1}B
+$$H_{AB}=\begin{pmatrix}g^{-1}&-g^{-1}B
 \\
 Bg^{-1}&g-Bg^{-1}B\end{pmatrix},\qquad e^{-2d}=e^{-2\phi}\sqrt{-g}.$$
+
+Notice that the above $H_{AB}$ is usually written as a calligraphic letter (i.e., curly H), however it seems that Markdown on GitHub does not support the LaTeX command `\mathcal`, so I will use a roman H instead.
 
 
 ## II. a
