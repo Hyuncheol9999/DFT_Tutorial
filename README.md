@@ -185,4 +185,57 @@ The above two equations are called the *section condition*. The section conditio
 
 ## III. Doubled Tensors
 
-1
+To define the doubled vector $\xi^{A}$, we needed an ordinary vector $\xi^{\mu}$ and a 1-form $\xi\_{\mu}$.
+Similarly, a doubled matrix is defined by arranging four different matrices $M^{\mu\nu}$, $M^{\mu}{}\_{\nu}$, $M\_{\mu}{}^{\nu}$, and $M\_{\mu\nu}$ in block matrix form.
+
+$$M_{AB}=\begin{pmatrix}M^{\mu\nu}&M^{\mu}{}_{\nu}
+\\
+M_{\mu}{}^{\nu}&M_{\mu\nu}\end{pmatrix}.$$
+
+When $M\_{AB}$ is written in block matrix form, the upper-left block contains $M^{\mu\nu}$, whose indices are both flipped to superscripts, while the lower-right block contains $M\_{\mu\nu}$, whose indices are subscripts, just like those of $M\_{AB}$. By the same rule, we can define doubled tensors whose doubled indices are raised or lowered.
+
+$$M^{AB}=\begin{pmatrix}M_{\mu\nu}&M_{\mu}{}^{\nu}
+\\
+M^{\mu}{}_{\nu}&M^{\mu\nu}\end{pmatrix},\qquad
+M\_{A}{}^{B}=\begin{pmatrix}M^{\mu}{}\_{\nu}&M^{\mu\nu}
+\\
+M\_{\mu\nu}&M_{\mu}{}^{\nu}\end{pmatrix},\qquad
+M^{A}{}\_{B}=\begin{pmatrix}M\_{\mu}{}^{\nu}&M\_{\mu\nu}
+\\
+M^{\mu\nu}&M^{\mu}{}\_{\nu}\end{pmatrix}.$$
+
+Next, we define the identity matrix $\delta^{\mu}\_{\nu}=\delta\_{\nu}{}^{\mu}$ and the zero matrix $0\_{\mu\nu}$.
+
+$$\delta^{\mu}{}\_{\nu}=\delta\_{\nu}{}^{\mu}=\mathrm{diag}(1,\cdots,1),\qquad0\_{\mu\nu}=\mathrm{diag}(0,\cdots,0).$$
+
+By combining these, we can define the following doubled tensor:
+
+$$J\_{AB}=\begin{pmatrix}0^{\mu\nu}&\delta^{\mu}{}\_{\nu}
+\\
+\delta\_{\mu}{}^{\nu}&0\_{\mu\nu}\end{pmatrix},\qquad
+J^{AB}=\begin{pmatrix}0\_{\mu\nu}&\delta\_{\mu}{}^{\nu}
+\\
+\delta^{\mu}{}\_{\nu}&0^{\mu\nu}\end{pmatrix},\qquad
+J\_{A}{}^{B}=\begin{pmatrix}\delta^{\mu}{}\_{\nu}&0^{\mu\nu}
+\\
+0\_{\mu\nu}&\delta\_{\mu}{}^{\nu}\end{pmatrix},\qquad
+J^{A}{}\_{B}=\begin{pmatrix}\delta\_{\mu}{}^{\nu}&0\_{\mu\nu}
+\\
+0^{\mu\nu}&\delta^{\mu}{}\_{\nu}\end{pmatrix}.$$
+
+Writing it in matrix form, we find the following:
+
+$$J\_{AB}=J^{AB}=\begin{pmatrix}0&&&1&&
+\\
+&\ddots&&&\ddots&
+\\
+&&0&&&1
+\\
+1&&&0&&
+\\
+&\ddots&&&\ddots&
+\\
+&&1&&&0\end{pmatrix},\qquad
+J\_{A}{}^{B}=J^{B}{}\_{A}=\delta\_{A}^{B}.$$
+
+That is, $J\_{AB}$ is invariant under the matrices that raise or lower indices, and therefore it is invariant under T-duality. If we extend T-duality, which is simply a transformation that exchanges coordinates, into the form of a rotation group, we obtain the group $\mathbf{O}(D,D)$, which is similar to the Lorentz group $\mathbf{O}(1,3)$ (recall that $D$ is the dimension of spacetime). Since $J\_{AB}$ is invariant under this group, it is called the $\mathbf{O}(D,D)$-invariant metric. Like $H\_{AB}$, which we saw earlier, $J\_{AB}$ should also be written in a calligraphic letter, but in this tutorial we will write it as a roman J.
