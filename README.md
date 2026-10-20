@@ -103,4 +103,86 @@ Since the radius has changed, the new circle is different from the original one,
 
 $$0\le\tilde{y}\lt\frac{\alpha'}{R}.$$
 
+The spaces described by the coordinates $y$ and $\tilde{y}$ are completely different spaces.
+For example, four-dimensional flat spacetime can be described by the coordinates $(t,r,\theta,\phi)$, and the Schwarzschild black hole can also be described by the coordinates $(t,r,\theta,\phi)$, but no coordinate transformation relates the two.
+In other words, T-duality is not a coordinate transformation (which is familiar to physicists), but rather a transformation between spaces.
+
+
+### 1. Definition
+
+In order to express T-duality in the language of coordinate transformation, DFT introduces the concept of doubled spacetime.
+For example, for the coordinates $(t,x,y,z)$ of four-dimensional spacetime, the coordinates of the doubled spacetime are eight-dimensional, as given below:
+
+$$x^{A}=(\tilde{t},\tilde{x},\tilde{y},\tilde{z},t,x,y,z).$$
+
+In ordinary spacetime, T-duality between the coordinates $y$ and $\tilde{y}$ was a transformation of spacetime that cannot be expressed as a coordinate transformation.
+In doubled spacetime, however, it is described simply as a coordinate transformation that exchanges $y$ and $\tilde{y}$.
+In arbitrary dimensions, the coordinates are written in block matrix form as follows (recall that, as mentioned earlier, DFT uses a block matrix $H_{AB}$ consisting of $g_{\mu\nu}$ and $B_{\mu\nu}$):
+
+$$x^{A}=\begin{pmatrix}\tilde{x}_{\mu}
+\\
+x^{\mu}\end{pmatrix}.$$
+
+In the above expression, $x^{\mu}$ are the ordinary coordinates, $\tilde{x}\_{\mu}$ are called the dual coordinates, and $x^{A}$ is called the doubled coordinate.
+Since the dual coordinates do not appear in the laws of physics, all physical quantities must be independent of $\tilde{x}\_{\mu}$.
+That is, the derivative with respect to the doubled coordinate $x^{A}=(\tilde{x}\_{\mu},x^{\mu})$ is given as follows:
+
+$$\partial_{A}=\begin{pmatrix}\tilde{\partial}{}^{\mu}
+\\
+\partial_{\mu}\end{pmatrix}=\begin{pmatrix}0
+\\
+\partial_{\mu}\end{pmatrix}.$$
+
+As we saw earlier, T-duality in DFT is given by a coordinate transformation that exchanges the ordinary coordinates $x^{\mu}$ and the dual coordinates $\tilde{x}\_{\mu}$.
+To make this more explicit, DFT expresses this exchange of coordinates as raising or lowering a vector index, as shown below:
+
+$$x^{A}=\begin{pmatrix}\tilde{x}\_{\mu}
+\\
+x^{\mu}\end{pmatrix}
+\qquad\longleftrightarrow\qquad
+x\_{A}=\begin{pmatrix}x^{\mu}
+\\
+\tilde{x}\_{\mu}\end{pmatrix}.$$
+
+
+### 2. Section Condition
+
+The index of the ordinary coordinate $x^{\mu}$ is written as a superscript, whereas the index of the dual coordinate $\tilde{x}\_{\mu}$ is written as a subscript. Based on this, a doubled vector is defined in terms of a vector $\xi^{\mu}$ and a 1-form $\tilde{\xi}\_{\mu}$ as follows:
+
+$$\xi^{A}=\begin{pmatrix}\tilde{\xi}_{\mu}
+\\
+\xi^{\mu}\end{pmatrix}.$$
+
+Under T-duality, this is transformed into a doubled 1-form, which, as we saw earlier, is defined by exchanging the vector and the 1-form.
+
+$$\xi_{A}=\begin{pmatrix}\xi^{\mu}
+\\
+\tilde{\xi}_{\mu}\end{pmatrix}.$$
+
+Keep in mind that when the doubled index $A$ is a superscript, the subscripted $\tilde{\xi}\_{\mu}$ appears first in the block matrix representation, whereas when the doubled index $A$ is a subscript, the superscripted $\xi^{\mu}$ appears first.
+Based on this, we apply the Einstein summation convention to compute the contraction of vectors and obtain the following:
+
+$$\xi_{A}\chi^{A}=\xi^{\mu}\tilde{\chi}_{\mu}+\tilde{\xi}_{\mu}\chi^{\mu}.$$
+
+For convenience, we will omit the tilde. That is, $\xi^{\mu}$ and $\xi\_{\mu}$ are completely independent tensors, and DFT does not use the rule shown below, in which indices are raised and lowered with the metric tensor:
+
+$$\xi_{\mu}\ne g_{\mu\nu}\xi^{\nu},\qquad\xi^{\mu}\ne g^{\mu\nu}\xi_{\nu}.$$
+
+Then, the Einstein summation convention is written as follows:
+
+$$\xi_{A}\chi^{A}=\xi_{\mu}\chi^{A}+\xi^{\mu}\chi_{\mu}.$$
+
+That is, the doubled index $A$ splits into the superscript ${}^{\mu}$ and the subscript ${}\_{\mu}$. Applying this to the derivative, we obtain the following, where $f$ is an arbitrary function:
+
+$$\partial_{A}\partial^{A}f=\partial_{\mu}\tilde{\partial}{}^{\mu}f+\tilde{\partial}{}^{\mu}\partial_{\mu}f=2\partial_{\mu}\tilde{\partial}{}^{\mu}f=0.$$
+
+In the last equation, we used the condition $\tilde{\partial}{}^{\mu}=0$ that we learned earlier. For two arbitrary functions $f$ and $g$, the following holds:
+
+$$\partial_{A}f\partial^{A}g=0.$$
+
+The above two equations are called the *section condition*. The section condition is a kind of gauge condition; for a detailed explanation, see `arXiv:1304.5946 [hep-th]`, `arXiv:1307.8377 [hep-th]`, and `arXiv:2505.10163 [gr-qc]`. In other words, since a gauge condition exists in doubled spacetime, it is sometimes called doubled-yet-gauged spacetime. In this tutorial, however, we will not discuss this gauge symmetry in detail.
+
+
+## III. Doubled Tensors
+
 1
