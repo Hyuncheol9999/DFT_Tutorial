@@ -64,16 +64,16 @@ On the other hand, the newly added fields $B_{\mu\nu}$ and $\phi$ appear from th
 However, string theory has a property called T-duality, and when we apply it, these variables transform as follows:
 
 $$\begin{aligned}
-&g_{yy}\to\frac{1}{g_{yy}},
-&&g_{yi}\to\frac{B_{yi}}{g_{yy}},
-&&B_{yi}\to\frac{g_{yi}}{g_{yy}},
+&g_{yy}\to\alpha'\frac{1}{g_{yy}},
+&&g_{yi}\to\alpha'\frac{B_{yi}}{g_{yy}},
+&&B_{yi}\to\alpha'\frac{g_{yi}}{g_{yy}},
 \\
 &g_{ij}\to g_{ij}-\frac{g_{yi}g_{yj}-B_{yi}B_{yj}}{g_{yy}},
 &&B_{ij}\to B_{ij}-\frac{g_{yi}B_{yj}-B_{yi}g_{yj}}{g_{yy}},
-&&\Phi\to\Phi-\frac{1}{2}\ln g_{yy},
+&&\phi\to\phi-\frac{1}{2}\ln\frac{g_{yy}}{\alpha'},
 \end{aligned}$$
 
-where we decomposed the spacetime coordinates as $x^{\mu}=(y,x^{i})$ for convenience.
+where we decomposed the spacetime coordinates as $x^{\mu}=(y,x^{i})$.
 In this way, the fact that $(g,B,\phi)$ transform into one another suggests that $B$ and $\phi$ can also be interpreted as gravitational fields.
 Indeed, in DFT, these quantities are combined to define the following block matrix.
 DFT is the framework in which this quantity is interpreted as a gravitational field and physical phenomena are discussed in terms of it.
@@ -85,4 +85,22 @@ Bg^{-1}&g-Bg^{-1}B\end{pmatrix},\qquad e^{-2d}=e^{-2\phi}\sqrt{-g}.$$
 Notice that the above $H_{AB}$ is usually written as a calligraphic letter (i.e., curly H), however it seems that Markdown on GitHub does not support the LaTeX command `\mathcal`, so I will use a roman H instead.
 
 
-## II. a
+## II. Doubled Spacetime
+
+From now on, we let $D$ denote the dimension of spacetime.
+DFT uses the concept of doubled spacetime, which means that the dimension of spacetime is doubled.
+That is, to describe $D$-dimensional physics, DFT uses a $2D$-dimensional doubled spacetime.
+To understand this, we need to know about T-duality in string theory.
+As before, we split the spacetime coordinates as $x^{\mu}=(y,x^{i})$.
+Ordinary coordinates take values in $x\in\mathbb{R}$, but for the coordinate $y$, we assume the following range:
+
+$$0\le y\lt R\qquad (R\text{ is a constant}).$$
+
+That is, $y$ plays a role similar to an angle, and the coordinate axis described by $y$ is not a straight line but a circle.
+As a result, physical quantities take an $R$-dependent form.
+According to T-duality in string theory, the laws of physics are invariant under the transformation $R\to\frac{\alpha'}{R}$.
+Since the radius has changed, the new circle is different from the original one, and therefore it must be described by a new coordinate $\tilde{y}$.
+
+$$0\le\tilde{y}\lt\frac{\alpha'}{R}.$$
+
+1
