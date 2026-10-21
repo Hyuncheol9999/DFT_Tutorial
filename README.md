@@ -280,7 +280,10 @@ For a tensor with two indices, the following holds:
 
 $$\hat{L}\_{\xi}M^{AB}=\xi^{C}\partial\_{C}M^{AB}+2\partial^{[A}\xi^{C]}M\_{C}{}^{B}+2\partial^{[B}\xi^{C]}M^{A}{}\_{C}.$$
 
-For the generalized Lie derivative of a tensor density, rather than a tensor, see `arXiv:2505.10163 [gr-qc]`.
+For the generalized Lie derivative of a tensor density of weight $w$, we have
+
+$$\hat{L}\_{\xi}T^{A}=\xi^{B}\partial_{B}T^{A}-T^{B}\partial_{B}\xi^{A}+T_{B}\partial^{A}\xi^{B}+wT^{A}\partial_{B}\xi^{B}.$$
+
 We will denote the generalized Lie derivative by $\hat{L}\_{\xi}$ and the ordinary Lie derivative by $L\_{\xi}$.
 The formulas for the Lie derivative of a vector and a 1-form are summarized as follows:
 
@@ -298,10 +301,261 @@ This is natural, since a doubled vector $T^{A}=(T\_{\mu},T^{\mu})$ is itself mad
 
 ### 2. How to Calculate Generalized Lie Derivative
 
-1
+Let us recall the following relation:
 
+$$\hat{L}\_{\xi}T^{A}=\xi^{B}\partial\_{B}T^{A}-T^{B}\partial\_{B}\xi^{A}+T\_{B}\partial^{A}\xi^{B}.$$
+
+The doubled index $A$ consists of the upper index $(\cdots)^{\mu}$ and the lower index $(\cdots)\_{\mu}$.
+First, taking the upper-index component $(\cdots)^{\mu}$ of the doubled index $A$ on both sides of the above equation, we obtain the following:
+
+$$\hat{L}\_{\xi}T^{\mu}=\xi^{B}\partial\_{B}T^{\mu}-T^{B}\partial\_{B}\xi^{A}.$$
+
+In the above equation, we used the section condition $\partial^{\mu}=0$.
+Since the Einstein summation convention in DFT reads $(\cdots)\_{B}(\cdots)^{B}=(\cdots)\_{\nu}(\cdots)^{\nu}+(\cdots)^{\nu}(\cdots)\_{\nu}$, applying this convention gives the following:
+
+$$\hat{L}\_{\xi}T^{\mu}=\xi^{\nu}\partial\_{\nu}T^{\mu}-T^{\nu}\partial\_{\nu}\xi^{A}=L\_{\xi}T^{\mu}.$$
+
+In other words, for a tensor with an upper index, $T^{\mu}$, the generalized Lie derivative is the same as the ordinary Lie derivative.
+Next, for a tensor with a lower index, $T\_{\mu}$, we obtain
+
+$$\begin{aligned}
+\hat{L}\_{\xi}T\_{\mu}&=\xi^{B}\partial\_{B}T\_{\mu}-T^{B}\partial\_{B}\xi\_{\mu}+T\_{B}\partial\_{\mu}\xi^{B}
+\\
+&=\xi^{\nu}\partial\_{\nu}T\_{\mu}-T^{\nu}\partial\_{\nu}\xi\_{\mu}+T\_{\nu}\partial\_{\mu}\xi^{\nu}+T^{\nu}\partial\_{\mu}\xi\_{\nu}
+\\
+&=\xi^{\nu}\partial\_{\nu}T\_{\mu}+T\_{\nu}\partial\_{\mu}\xi^{\nu}-2T^{\nu}\partial\_{[\nu}\xi\_{\mu]}
+\\
+&=L\_{\xi}T\_{\mu}-2T^{\nu}\partial\_{[\nu}\xi\_{\mu]}.
+\end{aligned}$$
+
+In this way, for a tensor $T_{\mu}$ with a lower index, the generalized Lie derivative differs from the ordinary Lie derivative, and an additional term appears.
+(The physical meaning of this additional term will become clear shortly.)
+The same rule can be applied to general tensors, and the generalized Lie derivative is given by the ordinary Lie derivative plus additional terms associated with the lower indices:
+
+$$\hat{L}\_{\xi}T^{\mu\nu}{}\_{\lambda\rho}=L\_{\xi}T^{\mu\nu}{}\_{\lambda\rho}-2T^{\mu\nu\alpha}{}\_{\rho}\partial\_{[\alpha}\xi_{\lambda]}-2T^{\mu\nu}{}\_{\lambda}{}^{\alpha}\partial\_{[\alpha}\xi_{\rho]}.$$
 
 
 ### 3. Example: Invariance of $J\_{AB}$
 
-1
+When computing $\hat{L}\_{\xi}J\_{AB}$, we take the upper- and lower-index components of each of the doubled indices $A$ and $B$.
+First, when both indices are upper indices, we obtain the following:
+
+$$\hat{L}\_{\xi}J^{\mu\nu}=L\_{\xi}J^{\mu\nu}=0.$$
+
+Since $J\_{AB}$ is a symmetric tensor, we have $J\_{A}{}^{B}=J^{B}{}\_{A}$.
+When one of the two indices is an upper index and the other is a lower index, we obtain the following:
+
+$$\hat{L}\_{\xi}J^{\mu}{}\_{\nu}=L\_{\xi}J^{\mu}{}\_{\nu}-2J^{\mu\alpha}\partial\_{[\alpha}\xi_{\nu]}=L\_{\xi}\delta^{\mu}{}\_{\nu}=0.$$
+
+Finally, when both indices are lower indices, we obtain
+
+$$\hat{L}\_{\xi}J\_{\mu\nu}=L\_{\xi}J\_{\mu\nu}-2J^{\alpha}{}\_{\nu}\partial\_{[\alpha}\xi\_{\mu]}-2J_{\mu}{}^{\alpha}\partial_{[\alpha}\xi_{\nu]}=-2\delta^{\alpha}{}_{\nu}\partial\_{[\alpha}\xi_{\mu]}-2\delta_{\mu}{}^{\alpha}\partial_{[\alpha}\xi_{\nu]}=0.$$
+
+That is, the $O(D,D)$-invariant metric is preserved under the generalized Lie derivative.
+
+
+## IV. Generalized Metric
+
+In general relativity, the metric tensor is defined as follows:
+
+$$g_{\mu\nu}g^{\nu\lambda}=\delta_{\mu}{}^{\lambda},\qquad g_{\mu\nu}=g_{\nu\mu}.$$
+
+In DFT, we use a quantity called the *generalized metric*, which is also defined based on the same conditions:
+
+$$H_{AB}H^{BC}=\delta_{A}{}^{C},\qquad H_{AB}=H_{BA}.$$
+
+However, unlike $g^{\nu\lambda}$, $H^{BC}$ is not an inverse matrix, but the generalized metric whose doubled indices are raised with the $O(D,D)$-invariant metric. That is, the equation $g\_{\mu\nu}g^{\nu\lambda}=\delta\_{\mu}{}^{\lambda}$ in general relativity holds automatically by definition, whereas the equation $H\_{AB}H^{BC}=\delta\_{A}{}^{C}$ in DFT is a kind of constraint. There are two ways to solve this constraint: the first is called the Riemannian parametrization, and the other is called the non-Riemannian parametrization.
+
+
+### 1. Riemannian Parametrization
+
+Let us consider the following generalized metric:
+
+$$H_{AB}=\begin{pmatrix}H^{\mu\nu}&H^{\mu}{}\_{\nu}
+\\
+H_{\mu}{}^{\nu}&H_{\mu\nu}\end{pmatrix}.$$
+
+Diagonalizing the above matrix diagonalizes $H^{\mu\nu}$ and $H\_{\mu\nu}$.
+The Riemannian parametrization is the method in which we assume that the eigenvalues after diagonalization are nonzero.
+In this case, $H^{\mu\nu}$ and $H\_{\mu\nu}$ are invertible matrices, so we can introduce the inverse metric $g^{\mu\nu}$ as follows:
+
+$$H^{\mu\nu}=g^{\mu\nu}=g_{\mu\nu}^{-1}.$$
+
+That is, the Riemannian parametrization is the method that uses the Riemannian metric $g\_{\mu\nu}$. Now, we solve the constraint $H_{A}{}^{B}H_{B}{}^{C}=\delta_{A}{}^{C}$:
+
+$$\begin{aligned}
+H_{A}{}^{B}H_{B}{}^{C}
+&=\begin{pmatrix}H^{\mu}{}_{\nu}&g^{\mu\nu}
+\\
+H_{\mu\nu}&H_{\mu}{}^{\nu}\end{pmatrix}
+\begin{pmatrix}H^{\nu}{}_{\lambda}&g^{\nu\lambda}
+\\
+H_{\nu\lambda}&H_{\nu}{}^{\lambda}\end{pmatrix}
+\\
+&=\begin{pmatrix}H^{\mu}{}\_{\nu}H^{\nu}{}\_{\lambda}+g^{\mu\nu}H\_{\nu\lambda}&H^{\mu}{}\_{\nu}g^{\nu\lambda}+g^{\mu\nu}H\_{\nu}{}^{\lambda}
+\\
+H_{\mu\nu}H^{\nu}{}_{\lambda}+H_{\mu}{}^{\nu}H_{\nu\lambda}&H\_{\mu\nu}g^{\nu\lambda}+H\_{\mu}{}^{\nu}H\_{\nu}{}^{\lambda}\end{pmatrix}
+\\
+&=\begin{pmatrix}H^{\mu}{}\_{\nu}H^{\nu}{}\_{\lambda}+g^{\mu\nu}H\_{\nu\lambda}&2H^{(\mu}{}_{\nu}g^{\lambda)\nu}
+\\
+2H\_{(\mu}{}^{\nu}H\_{\lambda)\nu}&H\_{\mu\nu}g^{\nu\lambda}+H\_{\mu}{}^{\nu}H\_{\nu}{}^{\lambda}\end{pmatrix}.
+\end{aligned}$$
+
+Solving $H_{A}{}^{B}H_{B}{}^{C}=\delta_{A}{}^{C}$, we obtain
+
+$$H^{\mu}{}\_{\nu}H^{\nu}{}\_{\lambda}+g^{\mu\nu}H\_{\nu\lambda}=\delta^{\mu}{}_{\lambda},\qquad H^{(\mu}{}_{\nu}g^{\lambda)\nu}=H\_{(\mu}{}^{\nu}H\_{\lambda)\nu}=0,\qquad H\_{\mu\nu}g^{\nu\lambda}+H\_{\mu}{}^{\nu}H\_{\nu}{}^{\lambda}=\delta_{\mu}{}^{\lambda}.$$
+
+That is, $H^{\mu}{}_{\nu}g^{\lambda\nu}$ is antisymmetric in $\mu\leftrightarrow\lambda$, hence we identify it with the Kalb--Ramond field:
+
+$$H^{\mu}{}_{\nu}g^{\lambda\nu}=-B^{\mu\lambda}\qquad\implies\qquad H^{\mu}{}_{\nu}=-(g^{-1}B)^{\mu}{}_{\nu}.$$
+
+Since $H_{AB}$ is a symmetric matrix, we obtain
+
+$$H_{AB}=\begin{pmatrix}g^{\mu\nu}&-(g^{-1}B)^{\mu}{}_{\nu}
+\\
+(Bg^{-1})_{\mu}{}^{\nu}&H\_{\mu\nu}\end{pmatrix}.$$
+
+From the constraint $H_{A}{}^{B}H_{B}{}^{C}=\delta_{A}{}^{C}$, it is straightforward to obtain
+
+$$H_{\mu\nu}=(g-Bg^{-1}B)_{\mu\nu}.$$
+
+
+### 2. Kalb--Ramond Gauge Transformation
+
+We have learned that the following holds for the generalized Lie derivative:
+
+$$\hat{L}_{\xi}H^{\mu\nu}=L_{\xi}H^{\mu\nu}.$$
+
+Applying the Riemannian parametrization, we obtain
+
+$$\hat{L}_{\xi}g^{-1}=L_{\xi}g^{-1}$$
+
+Next, we consider the following relation:
+
+$$\hat{L}\_{\xi}H\_{\mu}{}^{\nu}=L\_{\xi}H\_{\mu}{}^{\nu}-2H^{\alpha\nu}\partial_{[\alpha}\xi_{\mu]}.$$
+
+Applying the Riemannian parametrization, we obtain
+
+$$\hat{L}_{\xi}(Bg^{-1})_{\mu}{}^{\nu}=L\_{\xi}(Bg^{-1})\_{\mu}{}^{\nu}-2g^{\alpha\nu}\partial\_{[\alpha}\xi_{\mu]}.$$
+
+Applying the Leibniz rule $L\_{\xi}(Bg^{-1})=(L\_{\xi}B)g^{-1}+B(L\_{\xi}g^{-1})$, we obtain
+
+$$(\hat{L}\_{\xi}B_{\mu\alpha})g^{\alpha\nu}=(L\_{\xi}B_{\mu\alpha})g^{\alpha\nu}-2g^{\alpha\nu}\partial_{[\alpha}\xi_{\mu]}.$$
+
+Hence,
+
+$$\hat{L}\_{\xi}B_{\mu\nu}=L\_{\xi}B_{\mu\nu}+2\partial_{[\mu}\xi_{\nu]}.$$
+
+The first term on the right-hand side is the diffeomorphism transformation of spacetime, and the second term is the gauge transformation of the Kalb--Ramond field.
+For reference, the gauge transformation of a gauge potential given as a 1-form is $\delta A=\mathrm{d}\lambda$ (where $\lambda$ is a 0-form), and the gauge transformation of the Kalb--Ramond field, given as a 2-form, is $\delta B=\mathrm{d}\xi$ (where $\xi$ is a 1-form).
+Therefore, the physical meaning of the doubled vector $\xi^{A}=(\xi\_{\mu},\xi^{\mu})$ is as follows:
+
+$$\xi^{\mu}=(\text{diffeomorphism transformation}),\qquad\xi_{\mu}=(\text{Kalb--Ramond gauge transformation}).$$
+
+
+### 3. Non-Riemannian Parametrization
+
+The Riemannian parametrization assumes that the matrix $H^{\mu\nu}$ is invertible. As a typical case in which this assumption does not hold, we can consider the following matrix:
+
+$$H^{\mu\nu}=\mathrm{diag}(0,1,1,1).$$
+
+As a more explicit case, we will consider the case $H^{\mu\nu}=0$. In this case, computing the constraint $H\_{A}{}^{B}H\_{B}{}^{C}=\delta\_{A}{}^{C}$, we obtain the following:
+
+$$H_{A}{}^{B}H_{B}{}^{C}=\begin{pmatrix}H^{\mu}{}_{\nu}H^{\nu}{}_{\lambda}&0
+\\
+2H\_{(\mu}{}^{\nu}H\_{\lambda)\nu}&H\_{\mu}{}^{\nu}H\_{\nu}{}^{\lambda}\end{pmatrix}.$$
+
+Since $H^{\nu}{}\_{\mu}$ is a transposition of $H\_{\mu}{}^{\nu}$, the constraint $H\_{A}{}^{B}H\_{B}{}^{C}=\delta\_{A}{}^{C}$ yields the following two conditions:
+
+$$H_{\mu}{}^{\nu}H_{\nu}{}^{\lambda}=\delta_{\mu}{}^{\lambda},\qquad H_{(\mu}{}^{\nu}H_{\lambda)\nu}=0.$$
+
+We make the following substitution:
+
+$$H_{\lambda\nu}=H_{\nu}{}^{\alpha}B_{\alpha\lambda}\qquad\implies\qquad B_{\mu\nu}+B_{\nu\mu}=0.$$
+
+> When the matrix $H^{\mu\nu}$ is non-invertible, the Riemannian metric $g\_{\mu\nu}$ does not exist, but the Kalb--Ramond field $B\_{\mu\nu}$ still exists.
+
+Finding a matrix $H_{\mu}{}^{\nu}$ satisfying $H_{\mu}{}^{\nu}H_{\nu}{}^{\lambda}=\delta_{\mu}{}^{\lambda}$ is straightforward, and we find that the following generalized metric satisfies the constraint $H\_{A}{}^{B}H\_{B}{}^{C}=\delta\_{A}{}^{C}$:
+
+$$H_{AB}=\begin{pmatrix}0&&&\pm1&&
+\\
+&\ddots&&&\ddots&
+\\
+&&0&&&\pm1
+\\
+\pm1&&&\bigcirc&\bigcirc&\bigcirc
+\\
+&\ddots&&\bigcirc&\bigcirc&\bigcirc
+\\
+&&\pm1&\bigcirc&\bigcirc&\bigcirc\end{pmatrix},$$
+
+where $\bigcirc$ denotes the components of $H_{\mu\nu}$. The above form of the generalized metric is called the *non-Riemannian parametrization*. For a general form of the non-Riemannian parametrization, see `arXiv:1707.03713 [hep-th]` and `arXiv:2505.10163 [gr-qc]`.
+
+
+### 4. Non-Riemannian Geometry
+
+In general relativity, the Riemannian metric $g\_{\mu\nu}$ represents geometry.
+In DFT, on the other hand, the Kalb--Ramond field is also part of the gravitational field, so the generalized metric $H\_{AB}$, which combines it with $g\_{\mu\nu}$, represents gravity, that is, geometry.
+When the Riemannian parametrization is possible, $H\_{AB}$ reduces to $g\_{\mu\nu}$, as we saw earlier, and thus the generalized metric represents an ordinary Riemannian manifold.
+On the other hand, the geometry that appears when the non-Riemannian parametrization is applied differs from an ordinary Riemannian manifold, so it is called *non-Riemannian geometry*.
+To understand non-Riemannian geometry, we define the lightcone coordinates in two-dimensional spacetime as follows:
+
+$$x^{\pm}=\frac{t\pm x}{c\sqrt{2}}.$$
+
+Then, the Riemannian metric is given as follows (the constant $c$ is introduced for convenience and is not the speed of light):
+
+$$\mathrm{d}^{2}s=-\mathrm{d}t^{2}+\mathrm{d}x^{2}=-2c\mathrm{d}x^{+}\mathrm{d}x^{-}.$$
+
+In general relativity, the perturbation of the Riemannian metric is the gravitational potential.
+Therefore, in a divergent situation such as $c\to\infty$, the gravitational potential becomes infinitely large, and physical phenomena are not well defined.
+On the other hand, when the Kalb--Ramond field exactly cancels the effect of the gravitational potential, as shown below, physical phenomena are well defined even in the limit $c\to\infty$:
+
+$$B=c\mathrm{d}x^{-}\wedge\mathrm{d}x^{+}.$$
+
+References related to this include the Gomis--Ooguri nonrelativistic string `arXiv:hep-th/0009181` and the long string in $AdS_{3}$ `arXiv:hep-th/0001053`.
+According to these references, when a Kalb--Ramond field like the one above is present, physical phenomena still occur even when the Riemannian metric diverges. In this case, the generalized metric in Riemannian parametrization is given as
+
+$$H_{AB}=\begin{pmatrix}0&-\frac{1}{c}&1&0
+\\
+-\frac{1}{c}&0&0&-1
+\\
+1&0&0&0
+\\
+0&-1&0&0\end{pmatrix}.$$
+
+In the $c\to\infty$ limit, the geometry becomes non-Riemannian:
+
+$$H_{AB}=\begin{pmatrix}0&0&1&0
+\\
+0&0&0&-1
+\\
+1&0&0&0
+\\
+0&-1&0&0\end{pmatrix}.$$
+
+Notice that the generalized metric reflects physical phenomena more clearly than the Riemannian metric does.
+In the limit $c\to\infty$ with an appropriate Kalb--Ramond field, the Riemannian metric diverges, so physical phenomena cannot be defined in terms of it.
+The generalized metric, on the other hand, remains finite in this limit, and thus it correctly captures the stringy fact that physical phenomena still occur.
+
+
+### 5. Example: Isometry of Riemannian Geometry
+
+
+
+
+### 6. Example: Isometry of Non-Riemannian Geometry
+
+
+
+
+
+
+
+
+
+
+## V. Double Field Theory
+
+### 1. Doubled Diffeomorphism
+
+no covariant derivative : lets find tensor
