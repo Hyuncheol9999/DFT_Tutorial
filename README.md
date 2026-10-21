@@ -172,7 +172,7 @@ Then, the Einstein summation convention is written as follows:
 
 $$\xi_{A}\chi^{A}=\xi_{\mu}\chi^{A}+\xi^{\mu}\chi_{\mu}.$$
 
-That is, the doubled index $A$ splits into the superscript ${}^{\mu}$ and the subscript ${}\_{\mu}$. Applying this to the derivative, we obtain the following, where $f$ is an arbitrary function:
+That is, the doubled index $A$ splits into the superscript $(\cdots)^{\mu}$ and the subscript $(\cdots)\_{\mu}$. Applying this to the derivative, we obtain the following, where $f$ is an arbitrary function:
 
 $$\partial_{A}\partial^{A}f=\partial_{\mu}\tilde{\partial}{}^{\mu}f+\tilde{\partial}{}^{\mu}\partial_{\mu}f=2\partial_{\mu}\tilde{\partial}{}^{\mu}f=0.$$
 
@@ -238,4 +238,70 @@ $$J\_{AB}=J^{AB}=\begin{pmatrix}0&&&1&&
 &&1&&&0\end{pmatrix},\qquad
 J\_{A}{}^{B}=J^{B}{}\_{A}=\delta\_{A}^{B}.$$
 
-That is, $J\_{AB}$ is invariant under the matrices that raise or lower indices, and therefore it is invariant under T-duality. If we extend T-duality, which is simply a transformation that exchanges coordinates, into the form of a rotation group, we obtain the group $\mathbf{O}(D,D)$, which is similar to the Lorentz group $\mathbf{O}(1,3)$ (recall that $D$ is the dimension of spacetime). Since $J\_{AB}$ is invariant under this group, it is called the $\mathbf{O}(D,D)$-invariant metric. Like $H\_{AB}$, which we saw earlier, $J\_{AB}$ should also be written in a calligraphic letter, but in this tutorial we will write it as a roman J.
+That is, $J\_{AB}$ is invariant under the matrices that raise or lower indices, and therefore it is invariant under T-duality.
+If we extend T-duality, which is simply a transformation that exchanges coordinates, into the form of a rotation group, we obtain the group $O(D,D)$, which is similar to the Lorentz group $O(1,3)$ (recall that $D$ is the dimension of spacetime).
+Since $J\_{AB}$ is invariant under this group, it is called the $O(D,D)$-invariant metric. Like $H\_{AB}$, which we saw earlier, $J\_{AB}$ should also be written in a calligraphic letter, but in this tutorial we will write it as a roman J.
+Multiplying a doubled vector by the $O(D,D)$-invariant metric, we obtain the following:
+
+$$J\_{AB}\xi^{B}=\begin{pmatrix}0^{\mu\nu}&\delta^{\mu}{}\_{\nu}
+\\
+\delta\_{\mu}{}^{\nu}&0\_{\mu\nu}\end{pmatrix}
+\begin{pmatrix}\xi_{\nu}
+\\
+\xi^{\nu}\end{pmatrix}
+=\begin{pmatrix}\xi^{\mu}
+\\
+\xi_{\mu}\end{pmatrix}=\xi_{A}.$$
+
+That is, the indices of doubled tensors are raised and lowered with the $O(D,D)$-invariant metric. For example,
+
+$$M_{AB}=J_{AC}J_{BD}M^{CD}.$$
+
+
+### 1. Generalized Lie Derivative
+
+In general relativity, the metric tensor $g\_{\mu\nu}$ represents a given geometry.
+If the Lie derivative of the metric tensor vanishes, this means that the geometry has a certain symmetry.
+In DFT, on the other hand, the $O(D,D)$-invariant metric $J\_{AB}$ represents T-duality, which is a more fundamental concept than geometry.
+For example, when a black hole is present, the symmetry of the geometry can be broken, but T-duality, which the theory itself must have, must never be broken.
+The extension of the Lie derivative to DFT is called the generalized Lie derivative, and it is denoted by $\hat{L}\_{\xi}$ (as before, we use a roman L instead of a calligraphic L because of the Markdown issue on GitHub).
+Under the generalized Lie derivative, the $O(D,D)$-invariant metric must always be preserved:
+
+$$\hat{L}\_{\xi}J\_{AB}=0.$$
+
+In general, the generators of rotations are antisymmetric matrices.
+$J\_{AB}$ is invariant under the rotations in $O(D,D)$, and using an infinitesimal vector $\xi^{A}$, we can write the corresponding antisymmetric matrix as $\partial^{[A}\xi^{B]}=\frac{1}{2}(\partial^{A}\xi^{B}-\partial^{B}\xi^{A})$.
+Then, for a doubled vector $T^{A}$, the generalized Lie derivative is defined as follows:
+
+$$\hat{L}\_{\xi}T^{A}=\xi^{B}\partial\_{B}T^{A}+2\partial^{[A}\xi^{B]}T_{B}.$$
+
+Multiplying both sides of the above equation by $J\_{CA}$, we obtain the generalized Lie derivative of $T\_{C}$.
+For a tensor with two indices, the following holds:
+
+$$\hat{L}\_{\xi}M^{AB}=\xi^{C}\partial\_{C}M^{AB}+2\partial^{[A}\xi^{C]}M\_{C}{}^{B}+2\partial^{[B}\xi^{C]}M^{A}{}\_{C}.$$
+
+For the generalized Lie derivative of a tensor density, rather than a tensor, see `arXiv:2505.10163 [gr-qc]`.
+We will denote the generalized Lie derivative by $\hat{L}\_{\xi}$ and the ordinary Lie derivative by $L\_{\xi}$.
+The formulas for the Lie derivative of a vector and a 1-form are summarized as follows:
+
+$$\begin{aligned}
+\hat{L}\_{\xi}T^{A}&=\xi^{B}\partial\_{B}T^{A}-T^{B}\partial\_{B}\xi^{A}+T\_{B}\partial^{A}\xi^{B},
+\\
+L\_{\xi}u^{\mu}&=\xi^{\nu}\partial\_{\nu}u^{\mu}-u^{\nu}\partial\_{\nu}\xi^{\mu},
+\\
+L\_{\xi}\omega\_{\mu}&=\xi^{\nu}\partial\_{\nu}\omega\_{\nu}+\omega\_{\nu}\partial\_{\mu}\xi^{\nu}.
+\end{aligned}$$
+
+Looking closely at the above equation, we see that the generalized Lie derivative of a doubled vector is a combination of the ordinary Lie derivatives of a vector and a 1-form.
+This is natural, since a doubled vector $T^{A}=(T\_{\mu},T^{\mu})$ is itself made up of a vector and a 1-form.
+
+
+### 2. How to Calculate Generalized Lie Derivative
+
+1
+
+
+
+### 3. Example: Invariance of $J\_{AB}$
+
+1
