@@ -66,7 +66,7 @@ However, string theory has a property called T-duality, and when we apply it, th
 $$\begin{aligned}
 &g_{yy}\to\alpha'\frac{1}{g_{yy}},
 &&g_{yi}\to\alpha'\frac{B_{yi}}{g_{yy}},
-&&B_{yi}\to\alpha'\frac{g_{yi}}{g_{yy}},
+&&B_{iy}\to\alpha'\frac{g_{yi}}{g_{yy}},
 \\
 &g_{ij}\to g_{ij}-\frac{g_{yi}g_{yj}-B_{yi}B_{yj}}{g_{yy}},
 &&B_{ij}\to B_{ij}-\frac{g_{yi}B_{yj}-B_{yi}g_{yj}}{g_{yy}},
@@ -162,7 +162,7 @@ $$\xi_{A}=\begin{pmatrix}\xi^{\mu}
 Keep in mind that when the doubled index $A$ is a superscript, the subscripted $\tilde{\xi}\_{\mu}$ appears first in the block matrix representation, whereas when the doubled index $A$ is a subscript, the superscripted $\xi^{\mu}$ appears first.
 Based on this, we apply the Einstein summation convention to compute the contraction of vectors and obtain the following:
 
-$$\xi_{A}\chi^{A}=\xi^{\mu}\tilde{\chi}_{\mu}+\tilde{\xi}_{\mu}\chi^{\mu}.$$
+$$\xi\_{A}\chi^{A}=\xi^{\mu}\tilde{\chi}\_{\mu}+\tilde{\xi}\_{\mu}\chi^{\mu}.$$
 
 For convenience, we will omit the tilde. That is, $\xi^{\mu}$ and $\xi\_{\mu}$ are completely independent tensors, and DFT does not use the rule shown below, in which indices are raised and lowered with the metric tensor:
 
@@ -360,7 +360,7 @@ In general relativity, the metric tensor is defined as follows:
 
 $$g_{\mu\nu}g^{\nu\lambda}=\delta_{\mu}{}^{\lambda},\qquad g_{\mu\nu}=g_{\nu\mu}.$$
 
-In DFT, we use a quantity called the *generalized metric*, which is also defined based on the same conditions:
+In DFT, we use a quantity called the *generalized metric*, which is also defined based on the same manner:
 
 $$H_{AB}H^{BC}=\delta_{A}{}^{C},\qquad H_{AB}=H_{BA}.$$
 
@@ -538,24 +538,335 @@ In the limit $c\to\infty$ with an appropriate Kalb--Ramond field, the Riemannian
 The generalized metric, on the other hand, remains finite in this limit, and thus it correctly captures the stringy fact that physical phenomena still occur.
 
 
-### 5. Example: Isometry of Riemannian Geometry
+### 5. Examples
+
+- Buscher Transformation
+
+For simplicity, let us consider the two-dimensional spacetime with the coordinates $(t,x)$, and ignore the Kalb--Ramond field:
+
+$$H_{AB}=\begin{pmatrix}\frac{g_{xx}}{g_{tt}g_{xx}-g_{tx}^{2}}&-\frac{g_{tx}}{g_{tt}g_{xx}-g_{tx}^{2}}&0&0
+\\
+-\frac{g_{tx}}{g_{tt}g_{xx}-g_{tx}^{2}}&\frac{g_{tt}}{g_{tt}g_{xx}-g_{tx}^{2}}&0&0
+\\
+0&0&g_{tt}&g_{tx}
+\\
+0&0&g_{tx}&g_{xx}\end{pmatrix}.$$
+
+THe T-duality transformation exchanging $x\leftrightarrow\tilde{x}$ is described by the following matrix:
+
+$$T^{AB}=\begin{pmatrix}1&0&0&0
+\\
+0&0&0&1
+\\
+0&0&1&0
+\\
+0&1&0&0\end{pmatrix}.$$
+
+Then, the T-duality is given as
+
+$$T^{AB}H_{BC}T^{CD}=\begin{pmatrix}\frac{g_{xx}}{g_{tt}g_{xx}-g_{tx}^{2}}&0&0&-\frac{g_{tx}}{g_{tt}g_{xx}-g_{tx}^{2}}
+\\
+0&g_{xx}&g_{tx}&0
+\\
+0&g_{tx}&g_{tt}&0
+\\
+-\frac{g_{tx}}{g_{tt}g_{xx}-g_{tx}^{2}}&0&0&\frac{g_{tt}}{g_{tt}g_{xx}-g_{tx}^{2}}\end{pmatrix}.$$
+
+Now, we recall the following T-duality transformation we have learned before (with $\alpha'=1$):
+
+$$g_{xx}'=\frac{1}{g_{xx}},\qquad B_{tx}'=\frac{g_{xt}}{g_{xx}},\qquad g_{tt}'=g_{tt}-\frac{g_{xt}^{2}}{g_{xx}}.$$
+
+That is, we have the following Riemannian parametrization:
+
+$$g_{\mu\nu}'=\frac{1}{g_{xx}}\begin{pmatrix}g_{tt}g_{xx}-g_{tx}^{2}&0
+\\
+0&1\end{pmatrix},\qquad B_{\mu\nu}'=\frac{1}{g_{xx}}\begin{pmatrix}0&g_{tx}
+\\
+-g_{tx}&0\end{pmatrix},$$
+
+whose corresponding generalized metric is given as
+
+$$H_{AB}'=\begin{pmatrix}g'^{-1}&-g'^{-1}B'
+\\
+B'g'^{-1}&g'-B'g'^{-1}B'\end{pmatrix}
+=\begin{pmatrix}\frac{g_{xx}}{g_{tt}g_{xx}-g_{tx}^{2}}&0&0&-\frac{g_{tx}}{g_{tt}g_{xx}-g_{tx}^{2}}
+\\
+0&g_{xx}&g_{tx}&0
+\\
+0&g_{tx}&g_{tt}&0
+\\
+-\frac{g_{tx}}{g_{tt}g_{xx}-g_{tx}^{2}}&0&0&\frac{g_{tt}}{g_{tt}g_{xx}-g_{tx}^{2}}\end{pmatrix}=(THT)_{AB}.$$
 
 
+- Isometry of Riemannian Geometry
+
+For a constant $c$, let us consider the following generalized metric. Since $H^{\mu\nu}$ is invertible, this is Riemannian. In fact, we have already seen that this comes from the two-dimensional spacetime with Kalb--Ramond field:
+
+$$H_{AB}=\begin{pmatrix}0&-c&1&0
+\\
+-c&0&0&-1
+\\
+1&0&0&0
+\\
+0&-1&0&0\end{pmatrix}.$$
+
+In the lightcone coordinates $\xi^{A}=(\xi_{+},\xi_{-},\xi^{+},\xi^{-})$, the generalized Lie derivative is given by
+
+$$\hat{L}\_{\xi}H\_{AB}=\begin{pmatrix}2c\partial_{-}\xi^{+}&c(\partial_{+}\xi^{+}+\partial_{-}\xi^{-})&c(\partial_{-}\xi_{+}-\partial_{+}\xi_{-})&2\partial_{-}\xi^{+}
+\\
+c(\partial_{+}\xi^{+}+\partial_{-}\xi^{-})&2c\partial_{+}\xi^{-}&-2\partial_{+}\xi^{-}&c(\partial_{+}\xi_{-}-\partial_{-}\xi_{+})
+\\
+c(\partial_{-}\xi_{+}-\partial_{+}\xi_{-})&-2\partial_{+}\xi^{-}&0&2(\partial_{-}\xi_{+}-\partial_{+}\xi_{-})
+\\
+2\partial_{-}\xi^{+}&c(\partial_{+}\xi_{-}-\partial_{-}\xi_{+})&2(\partial_{-}\xi_{+}-\partial_{+}\xi_{-})&0
+\end{pmatrix}.$$
+
+In DFT, we always have $\hat{L}\_{\xi}J\_{AB}=0$, while the condition $\hat{L}\_{\xi}H\_{AB}=0$ means the geometry has symmetries. That is, the DFT Killing vector is defined by $\hat{L}\_{\xi}H\_{AB}=0$. In this case, the Killing vector satisfies the following relations:
+
+$$\xi^{+}=\xi^{+}(x^{+}),\qquad\xi^{-}=\xi^{-}(x^{-}),\qquad\partial_{+}\xi^{+}+\partial_{-}\xi^{-}=0,\qquad\partial_{+}\xi_{-}-\partial_{-}\xi_{+}=0.$$
+
+Solving these, we obtain
+
+$$\xi^{+}=a_{1}x^{+}+a_{2},\qquad\xi^{-}=-a_{1}x^{-}+a_{3},\qquad\xi_{+}=\partial_{+}\chi,\qquad\xi_{-}=\partial_{-}\chi,$$
+
+where $a_{1},a_{2},a_{3}$ are constants and $\chi$ is an arbitrary function. First of all, the 1-form $\xi_{\mu}$ does not generate the Kalb--Ramond gauge transformation:
+
+$$\xi_{\mu}\mathrm{d}x^{\mu}=\mathrm{d}\chi\qquad\implies\qquad\delta B=\mathrm{d}\xi=0.$$
+
+The vector $\xi^{\mu}$ is a linear combination of the following three vectors:
+
+$$\begin{pmatrix}1
+\\
+0\end{pmatrix},\qquad
+\begin{pmatrix}0
+\\
+1\end{pmatrix},\qquad
+\begin{pmatrix}x^{+}
+\\
+-x^{-}\end{pmatrix}.$$
+
+The first two vectors are spacetime translations, and the last vector is the Lorentz boost:
+
+$$x^{+}\partial_{+}-x^{-}\partial_{-}=t\partial_{x}+x\partial_{t},$$
+
+where we used $x^{\pm}=\frac{t\pm x}{\sqrt{2}}$. Therefore, we conlcude that:
+
+> Killing vectors of generalized metric in the Riemannian parametrization, corresponds to the Killing vectors of the Riemannian manifold.
 
 
-### 6. Example: Isometry of Non-Riemannian Geometry
+- Isometry of Non-Riemannian Geometry
 
+Consider the following non-Riemannian generalized metric:
 
+$$H_{AB}=\begin{pmatrix}0&0&1&0
+\\
+0&0&0&-1
+\\
+1&0&0&0
+\\
+0&-1&0&0\end{pmatrix}.$$
 
+In the lightcone coordinates, the generalized Lie derivative reads as
 
+$$\hat{L}\_{\xi}H\_{AB}=\begin{pmatrix}0&0&0&2\partial_{-}\xi^{+}
+\\
+0&0&-2\partial_{+}\xi^{-}&0
+\\
+0&-2\partial_{+}\xi^{-}&0&2(\partial_{-}\xi_{+}-\partial_{+}\xi_{-})
+\\
+2\partial_{-}\xi^{+}&0&2(\partial_{-}\xi_{+}-\partial_{+}\xi_{-})&0\end{pmatrix}.$$
 
+In this case, the Killing vectors are given by
 
+$$\xi^{+}=\xi^{+}(x^{+}),\qquad\xi^{-}=\xi^{-}(x^{-}),\qquad\xi_{+}=\partial_{+}\chi,\qquad\xi_{-}=\partial_{-}\chi.$$
 
-
+There are infinitely many Killing vectors, which matches the two-dimensional local conformal symmetries.
 
 
 ## V. Double Field Theory
 
 ### 1. Doubled Diffeomorphism
 
-no covariant derivative : lets find tensor
+In general relativity, let us take an infinitesimal diffeomorphism $x^{\mu}\to x^{\mu}+\xi^{\mu}(x)$ to a 1-form $\omega=\omega_{\mu}(x)\mathrm{d}x^{\mu}$:
+
+$$\begin{aligned}
+\delta_{\xi}\omega&=\omega_{\mu}(x+\xi)\mathrm{d}(x^{\mu}+\xi^{\mu})-\omega_{\mu}(x)\mathrm{d}x^{\mu}
+\\
+&=\xi^{\nu}(\partial_{\nu}\omega_{\mu})\mathrm{d}x^{\mu}+\omega_{\mu}(x)\mathrm{d}\xi^{\mu}
+\\
+&=(\xi^{\nu}\partial_{\nu}\omega_{\mu}+\omega_{\nu}\partial_{\mu}\xi^{\nu})\mathrm{d}x^{\mu}
+\\
+&=(L_{\xi}\omega_{\mu})\mathrm{d}x^{\mu}.
+\end{aligned}$$
+
+If $\Omega_{\mu\nu\lambda}$ is a tensor, the following property must hold:
+
+$$\delta_{\xi}\Omega_{\mu\nu\lambda}=L_{\xi}\Omega_{\mu\nu\lambda}.$$
+
+Likewise, in DFT, $T_{ABC}$ is a tensor if the following relation holds:
+
+$$\delta_{\xi}T_{ABC}=\hat{L}\_{\xi}T_{ABC}.$$
+
+As a example, let us show that $\partial_{A}f$ is a tensor in DFT. To this end, we use the fact that $\delta_{\xi}$ commutes with the partial derivative (which is because $\delta_{\xi}$ is a transformation of tensors, not the coordinates):
+
+$$\delta_{\xi}(\partial_{A}f)=\partial_{A}(\delta_{\xi}f)=\partial_{A}(\hat{L}_{\xi}f)=\partial\_{A}(\xi^{B}\partial\_{B}f).$$
+
+And, we compute the following generalized Lie derivative:
+
+$$\hat{L}\_{\xi}(\partial\_{A}f)=\xi^{B}\partial\_{B}\partial_{A}f-\partial^{B}f\partial\_{B}\xi\_{A}+\partial_{B}f\partial_{A}\xi^{B}=\delta_{\xi}(\partial_{A}f),$$
+
+where we used the section condition $\partial^{B}f\partial_{B}\xi_{A}=0$, Hence, $\partial_{A}f$ is a tensor. On the other hand, $\partial_{A}T_{B}$ is not a tensor since it is not written in terms of the covariant derivative. For the generalized metric, consider the following expression which is a usual kinetic term in the Lagrangian:
+
+$$H^{AB}\partial_{A}H_{CD}\partial_{B}H^{CD}.$$
+
+This is not a tensor. Hence, we can add an additional term to compensate the difference:
+
+$$\frac{1}{4}H^{AB}\partial_{A}H_{CD}\partial_{B}H^{CD}-H^{AB}\partial_{B}H^{CD}\partial_{D}H_{AC}.$$
+
+Yet, this is not a tensor as well. Again, we add an additional term to define
+
+$$Q=\frac{1}{4}H^{AB}\partial_{A}H_{CD}\partial_{B}H^{CD}-H^{AB}\partial_{B}H^{CD}\partial_{D}H_{AC}-2\partial_{A}\partial_{B}H^{AC}.$$
+
+In this case, $(\delta_{\xi}-\hat{L}_{\xi})Q$ is a total derivative, but nonzero. Hence, $Q$ is not a tensor. We will further discuss the tensorial nature in the next subsection.
+
+
+### 2. Definition
+
+Remark: Since the Markdown rendering on GitHub does not support calligraphic letters, we will denote the Lagrangian by $L_{0}$ and the Lagrangian density by $L$.
+In general, the action is expressed as the integral of the Lagrangian:
+
+$$S=\int\mathrm{d}^{D}x\sqrt{-g}L_{0}.$$
+
+Since the expression $\sqrt{-g}$ does not exist in DFT, we replace it as follows (for convenience, we include the dilaton $\phi$ in this definition):
+
+$$e^{-2d}=e^{-2\phi}\sqrt{-g}.$$
+
+Here, $d$ is called the DFT dilaton.
+Since $\sqrt{-g}$ is a scalar density of weight 1, $e^{-2d}$ is also a scalar density of weight 1.
+Therefore, its generalized Lie derivative is given as follows:
+
+$$\hat{L}\_{\xi}e^{-2d}=\xi^{A}\partial_{A}e^{-2d}+e^{-2d}\partial_{A}\xi^{A}=e^{-2d}(-2\xi^{A}\partial_{A}d+\partial_{A}\xi^{A}).$$
+
+Using the Leibniz rule $\hat{L}\_{\xi}e^{-2d}=-2e^{-2d}\hat{L}_{\xi}d$, we obtain
+
+$$\hat{L}\_{\xi}d=\xi^{A}\partial_{A}d-\frac{1}{2}\partial_{A}\xi^{A}.$$
+
+If we take an infinitesimal variation $\delta$ on both sides, we notice that
+
+$$\hat{L}\_{\xi}\delta d=\xi^{A}\partial_{A}\delta d.$$
+
+Therefore, $\delta d$ is a scalar (not a density).
+The generalized Lie derivative of $d$ takes a somewhat unusual form, so one might think that $d$ is a strange variable rather than a tensor.
+However, $\delta d$, which appears when we take a linear perturbation, is a scalar, and therefore $d$ is a physically well-defined variable.
+Using the two variables $H_{AB}$ and $d$, we can construct the following scalar (originally constructed in `arXiv:1006.4823 [hep-th]`):
+
+$$S_{(0)}=4(H^{AB}\partial_{A}\partial_{B}d-H^{AB}\partial_{A}d\partial_{B}d+\partial_{A}H^{AB}\partial_{B}d)+\frac{1}{8}H^{AB}\partial_{A}H_{CD}\partial_{B}H^{CD}-\frac{1}{2}H^{AB}\partial_{B}H^{CD}\partial_{D}H_{AC}-\partial_{A}\partial_{B}H^{AB}.$$
+
+Based on this observation, we can contruct the following action (in the integral measure, the doubled coordinate $\tilde{x}_{\mu}$ will be ignored under the section condition $\tilde{\partial}{}^{\mu}=0$):
+
+$$S[H_{AB},d]=\int\mathrm{d}^{D}x\ e^{-2d}S_{(0)}.$$
+
+The theory defined by the above action, is called the Double Field Theory.
+
+
+### 3. Reduction to Supergravity Action
+
+The above action does not have the Dirichlet boundary condition, since it contains second-order derivatives $\partial_{A}\partial_{B}d$ and $\partial_{A}\partial_{B}H^{AB}$. Hence, we perform an integration by parts and obtain the following quadratic action (i.e., quadratic in first-order derivatives):
+
+$$S[H_{AB},d]=\int\mathrm{d}^{D}x\ e^{-2d}\left(4H^{AB}\partial_{A}d\partial_{B}d-2\partial_{A}H^{AB}\partial_{B}d+\frac{1}{8}H^{AB}\partial_{A}H_{CD}\partial_{B}H^{CD}-\frac{1}{2}H^{AB}\partial_{B}H^{CD}\partial_{D}H_{AC}\right).$$
+
+If we take the Riemannian parametrization, the above action is reduced into the following form:
+
+$$S[g_{\mu\nu},B_{\mu\nu},\phi]=\int\mathrm{d}^{D}x\sqrt{-g}e^{-2\phi}\left[g^{\mu\nu}(\Gamma_{\mu\alpha}^{\beta}{}\Gamma_{\nu\beta}^{\alpha}-\Gamma_{\mu\nu}^{\alpha}{}\Gamma_{\alpha\beta}^{\beta})-\frac{1}{12}H_{\mu\nu\lambda}H^{\mu\nu\lambda}+4\partial_{\mu}\phi\partial^{\mu}\phi+2(g^{\alpha\beta}\Gamma_{\alpha\beta}^{\mu}-g^{\mu\alpha}\Gamma_{\alpha\beta}^{\beta})\partial_{\mu}\phi\right],$$
+
+where the 3-form $H=\mathrm{d}B$ is the $H$-flux (not the generalized metric). Using the integration by parts, we can recover
+
+$$S[g_{\mu\nu},B_{\mu\nu},\phi]=\int\mathrm{d}^{D}x\sqrt{-g}e^{-2\phi}\left(R-\frac{1}{12}H_{\mu\nu\lambda}H^{\mu\nu\lambda}+4\partial_{\mu}\phi\partial^{\mu}\phi\right).$$
+
+
+## VI. Doubled String
+
+Since DFT originates from the string theory, the string worldsheet action must be written in terms of the generalized metric (not the Riemannian metric).
+In this section, we discuss how to construct the string theory in DFT, and its physical meaning.
+
+
+### 1. Basis Vector in DFT
+
+1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 2. Doubled Point Particle
+
+1
+
+
+
+
+### 3. Doubled String
+
+1
+
+
+
+
+
+### 4. Nonrelativistic String
+
+1
+
+
+
+
+
+
+## VII. Projector
+
+
+
+
+
+
+## VIII. DFT Christoffel Connection
+
+In general relativity, the connection with the metric compatibility and the torsion-free condition, is called the Levi-Civita connection.
+And, the component of the Levi-Civita connection in coordinate bases, is called the Christoffel symbol.
+
+
+
+
+## IX. DFT Curvature
+
+
+
+
+
+
+## X. Einstein Double Field Equations
+
+
+
+
+## XI. Linear Perturbation
+
+
+
+
+
+
+1
