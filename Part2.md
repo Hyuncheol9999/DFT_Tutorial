@@ -238,7 +238,7 @@ Since this constraint can be recast as $\delta H_{AB}=(P\delta H\overline{P})\_{
 $$P_{A}{}^{C}\frac{\delta S}{\delta H^{CD}}\overline{P}{}^{D}{}_{B}=0.$$
 
 
-### 2.
+### 2. DFT Vielbein
 
 
 
