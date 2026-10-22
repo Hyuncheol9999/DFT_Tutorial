@@ -784,4 +784,5 @@ where the 3-form $H=\mathrm{d}B$ is the $H$-flux (not the generalized metric). U
 $$S[g_{\mu\nu},B_{\mu\nu},\phi]=\int\mathrm{d}^{D}x\sqrt{-g}e^{-2\phi}\left(R-\frac{1}{12}H_{\mu\nu\lambda}H^{\mu\nu\lambda}+4\partial_{\mu}\phi\partial^{\mu}\phi\right).$$
 
 
-# Since the Markdown document in GitHub seems to have a length limit in rendering, this tutorial is continued in Part2.md
+## Since GitHub's Markdown renderer seems to have a limit on the length,
+## this tutorial is continued in [Part2.md](Part2.md).
