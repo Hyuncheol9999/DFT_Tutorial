@@ -66,7 +66,7 @@ However, string theory has a property called T-duality, and when we apply it, th
 $$\begin{aligned}
 &g_{yy}\to\alpha'\frac{1}{g_{yy}},
 &&g_{yi}\to\alpha'\frac{B_{yi}}{g_{yy}},
-&&B_{iy}\to\alpha'\frac{g_{yi}}{g_{yy}},
+&&B_{yi}\to\alpha'\frac{g_{yi}}{g_{yy}},
 \\
 &g_{ij}\to g_{ij}-\frac{g_{yi}g_{yj}-B_{yi}B_{yj}}{g_{yy}},
 &&B_{ij}\to B_{ij}-\frac{g_{yi}B_{yj}-B_{yi}g_{yj}}{g_{yy}},
@@ -784,89 +784,4 @@ where the 3-form $H=\mathrm{d}B$ is the $H$-flux (not the generalized metric). U
 $$S[g_{\mu\nu},B_{\mu\nu},\phi]=\int\mathrm{d}^{D}x\sqrt{-g}e^{-2\phi}\left(R-\frac{1}{12}H_{\mu\nu\lambda}H^{\mu\nu\lambda}+4\partial_{\mu}\phi\partial^{\mu}\phi\right).$$
 
 
-## VI. Doubled String
-
-Since DFT originates from the string theory, the string worldsheet action must be written in terms of the generalized metric (not the Riemannian metric).
-In this section, we discuss how to construct the string theory in DFT, and its physical meaning.
-
-
-### 1. Basis Vector in DFT
-
-1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 2. Doubled Point Particle
-
-1
-
-
-
-
-### 3. Doubled String
-
-1
-
-
-
-
-
-### 4. Nonrelativistic String
-
-1
-
-
-
-
-
-
-## VII. Projector
-
-
-
-
-
-
-## VIII. DFT Christoffel Connection
-
-In general relativity, the connection with the metric compatibility and the torsion-free condition, is called the Levi-Civita connection.
-And, the component of the Levi-Civita connection in coordinate bases, is called the Christoffel symbol.
-
-
-
-
-## IX. DFT Curvature
-
-
-
-
-
-
-## X. Einstein Double Field Equations
-
-
-
-
-## XI. Linear Perturbation
-
-
-
-
-
-
-1
+# Since the Markdown document in GitHub seems to have a length limit in rendering, this tutorial is continued in Part2.md
