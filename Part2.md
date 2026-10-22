@@ -1,4 +1,6 @@
-1
+# Tutorials on Double Field Theory: Part II
+### Hyun-Cheol Kim (kimhc8888@sogang.ac.kr)
+Since the Markdown document in GitHub has a length limit to be rendered, I continue the tutorial here in Part II.
 
 
 ## VI. Doubled String
