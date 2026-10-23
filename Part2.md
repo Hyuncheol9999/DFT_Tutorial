@@ -240,53 +240,323 @@ $$P_{A}{}^{C}\frac{\delta S}{\delta H^{CD}}\overline{P}{}^{D}{}_{B}=0.$$
 
 ### 2. DFT Vielbein
 
+As mentioned, the generalized metric cannot always be diagonalized with nonzero eigenvalues (since it can be non-Riemannian).
+On the other hand, the projectors can always be diagonalized into flat metric:
+
+$$P_{AB}=V_{Ap}V_{Bq}\eta^{pq},\qquad\overline{P}\_{AB}=\overline{V}\_{A\overline{p}}\overline{V}\_{B\overline{q}}\overline{\eta}^{\overline{p}\overline{q}},$$
+
+where $\overline{\eta}^{\overline{p}\overline{q}}=-\eta^{pq}$. The corresponding similarity transformation matrices $V_{Ap}$ and $\overline{V}_{A\overline{p}}$ are called the DFT vielbein.
+Recall that, in general relativity, the Riemannian vielbein is defined as
+
+$$g_{\mu\nu}=\eta_{pq}e^{p}{}_{\mu}e^{q}{}_{\nu}.$$
+
+In the matrix form, its inverse and transpose are
+
+$$e^{\mu}{}_{p}=(e^{p}{}_{\mu})^{-1},\qquad e\_{\mu}{}^{p}=(e^{p}{}\_{\mu})^{T}.$$
+
+In addition, we define the barred vielbein:
+
+$$g_{\mu\nu}=-\overline{\eta}\_{\overline{p}\overline{q}}\overline{e}^{\overline{p}}{}\_{\mu}\overline{e}^{\overline{q}}{}\_{\nu}.$$
+
+It is straightforward to notice that
+
+$$e^{p\mu}=g^{\mu\nu}e^{p}{}\_{\nu},\qquad e_{p\mu}=\eta_{pq}e^{q}{}_{\mu}.$$
+
+On the other hand, for the barred vielbein, the rules are different:
+
+$$\overline{e}^{\overline{p}\mu}=-g^{\mu\nu}\overline{e}^{\overline{p}}{}\_{\nu},\qquad\overline{e}\_{\overline{p}\mu}=\overline{\eta}\_{\overline{p}\overline{q}}\overline{e}^{\overline{q}}{}\_{\mu}.$$
+
+Based on these, the Riemannian parametrization of the DFT vielbeins is given as
+
+$$V_{Ap}=\frac{1}{\sqrt{2}}\begin{pmatrix}e^{\mu}{}\_{p}
+\\
+e_{\mu p}+B_{\mu p}\end{pmatrix},\qquad
+\overline{V}\_{A\overline{p}}=\frac{1}{\sqrt{2}}\begin{pmatrix}\overline{e}^{\mu}{}\_{\overline{p}}
+\\
+\overline{e}\_{\mu\overline{p}}+B_{\mu\overline{p}}\end{pmatrix},$$
+
+where $B_{\mu p}=B_{\mu\nu}e^{\nu}{}\_{p}$ and $B_{\mu\overline{p}}=B_{\mu\nu}\overline{e}^{\nu}{}\_{\overline{p}}$.
+In the non-Riemannian parametrization, finding the DFT vielbein requires some calculation.
 
 
+### 3. DFT Gamma Matrices
+
+The gamma matrix is defined based on the flat metric:
+
+$$\lbrace\gamma^{p},\gamma^{q}\rbrace=2\eta^{pq}.$$
+
+This is called the $SO(1,D-1)$ gamma matrix, since the flat metric can be diagonalized as
+
+$$\eta^{pq}=\mathrm{diag}(-1,1,\cdots,1).$$
+
+In DFT, we have another kind of flat metric $\overline{\eta}{}^{\overline{p}\overline{q}}=-\eta^{pq}$.
+The corresponding gamma matrix is defined as
+
+$$\lbrace\overline{\gamma}{}^{\overline{p}},\overline{\gamma}{}^{\overline{q}}\rbrace=2\overline{\eta}{}^{\overline{p}\overline{q}}.$$
+
+This is called the $SO(D-1,1)$ gamma matrix, since the flat metric $\overline{\eta}{}^{\overline{p}\overline{q}}$ can be diagonalized as
+
+$$\overline{\eta}{}^{\overline{p}\overline{q}}=\mathrm{diag}(1,-1,\cdots,-1).$$
+
+Accordingly, DFT has an $SO(1,D-1)$ spinor $\psi$ and an $SO(D-1,1)$ spinor $\psi'$, which forms the $N=2$ supersymmetry of type-II string theory.
+Each spinor acts to the gamma matrices as
+
+$$\gamma^{p}\psi,\qquad\overline{\gamma}{}^{\overline{p}}\psi'.$$
 
 
+### 4. Trace of Projector
+
+In the Riemannian parametrization, it is straightforward to show that
+
+$$J^{AB}H_{AB}=\delta^{\mu}{}\_{\nu}H_{\mu}{}^{\nu}+\delta_{\mu}{}^{\nu}H^{\mu}{}\_{\nu}=\delta^{\mu}{}\_{\nu}(Bg^{-1})_{\mu}{}^{\nu}-\delta_{\mu}{}^{\nu}(g^{-1}B)^{\mu}{}\_{\nu}=0.$$
+
+Hence,
+
+$$J^{AB}P_{AB}=J^{AB}\overline{P}\_{AB}=\frac{1}{2}J^{AB}J_{AB}=D.$$
+
+For the non-Riemannian parametrization, we consider
+
+$$H_{AB}=\begin{pmatrix}0&0&1&0
+\\
+0&0&0&-1
+\\
+1&0&0&0
+\\
+0&-1&0&0\end{pmatrix}
+\qquad\implies\qquad
+J^{AB}H_{AB}=0.$$
+
+However, there exists another non-Riemannian case where $J^{AB}H_{AB}\ne0$:
+
+$$H_{AB}=\begin{pmatrix}0&0&1&0
+\\
+0&0&0&1
+\\
+1&0&0&0
+\\
+0&1&0&0\end{pmatrix}
+\qquad\implies\qquad
+J^{AB}H_{AB}=4.$$
+
+Since $J^{AB}H\_{AB}$ always takes integer values, it cannot change continuously, and thus unless $J^{AB}H\_{AB}=0$, its value would have to change discontinuously.
+Therefore, the condition $J^{AB}H\_{AB}=0$ is essential for Riemannian geometry and non-Riemannian geometry to coexist.
+Of course, when non-Riemannian geometry exists on its own, $J^{AB}H\_{AB}\ne0$ is possible.
+In this tutorial, however, we will always assume $J^{AB}H\_{AB}=0$, and therefore $J^{AB}P\_{AB}=D$.
 
 
+### 5. Useful Shorthand Notation
 
+From now, we use the following shorthand notation for the projected indices:
 
+$$T_{\mathring{A}}=P_{AB}T^{B},\qquad T_{\overline{A}}=\overline{P}\_{AB}T^{B}.$$
 
+Then, the decomposition of vector can be written as
 
+$$T_{A}=T_{\mathring{A}}+T_{\overline{A}}.$$
 
+And, a matrix can be decomposed as follows:
 
+$$M_{AB}=M_{\mathring{A}\mathring{B}}+M_{\overline{A}\overline{B}}+M_{\mathring{A}\overline{B}}+M_{\overline{A}\mathring{B}}.$$
 
+- Example
 
+Let us compute the following expression:
 
+$$\delta H_{AB}\delta H^{AB}=(\delta H_{\mathring{A}\overline{B}}+\delta H_{\overline{A}\mathring{B}})(\delta H^{\mathring{A}\overline{B}}+\delta H^{\overline{A}\mathring{B}})=\delta H_{\mathring{A}\overline{B}}\delta H^{\mathring{A}\overline{B}}+\delta H_{\overline{A}\mathring{B}}\delta H^{\overline{A}\mathring{B}}.$$
 
+Since $P_{AB}$ is a symmetric matrix, we notice that
+
+$$\delta H_{\overline{A}\mathring{B}}=(\overline{P}\delta HP)_{AB}=(P\delta H\overline{P})\_{BA}.$$
+
+Hence, we obtain
+
+$$\delta H_{AB}\delta H^{AB}=2\delta H_{\mathring{A}\overline{B}}\delta H^{\mathring{A}\overline{B}}.$$
 
 
 ## VIII. DFT Christoffel Connection
 
-In general relativity, the connection with the metric compatibility and the torsion-free condition, is called the Levi-Civita connection.
+In general relativity, the connection with the metric compatibility and the torsion-free condition, is called the Levi--Civita connection.
 And, the component of the Levi-Civita connection in coordinate bases, is called the Christoffel symbol.
+In DFT, we impose the same condition (i.e., metric compatibility and torsion-free condition), yet it is mathematically distinct from the usual Levi--Civita connection.
+Hence, we call the DFT connection as *DFT Christoffel connection* following `arXiv:2505.10163 [gr-qc]`.
+Recall that in general relativity, the rules of the covariant derivative are different for vectors and 1-forms.
+
+$$\nabla_{\mu}A^{\alpha}=\partial_{\mu}A^{\alpha}+\Gamma_{\mu\beta}^{\alpha}A^{\beta},\qquad\nabla_{\mu}\zeta_{\alpha}=\partial_{\mu}\zeta_{\alpha}-\Gamma_{\mu\alpha}^{\beta}\zeta_{\beta}.$$
+
+On the other hand, when we use orthonormal indices, the gauge group becomes the rotation group, and in this case the covariant derivative is given in terms of the spin connection.
+
+$$\nabla_{\mu}A^{a}=\partial_{\mu}A^{a}+\omega_{\mu}{}^{a}{}_{b}A^{b},\qquad\nabla_{\mu}\zeta_{a}=\partial_{\mu}\zeta_{a}-\omega_{\mu}{}^{b}{}_{a}\zeta\_{b}.$$
+
+Since the spin connection is antisymmetric, we can see that the two expressions above are in fact identical.
+
+$$\nabla_{\mu}\zeta_{a}=\partial_{\mu}\zeta_{a}+\omega_{\mu a}{}^{b}\zeta\_{b}\qquad\implies\qquad\nabla_{\mu}\zeta^{a}=\partial_{\mu}\zeta^{a}+\omega_{\mu}{}^{a}{}_{b}\zeta^{b}.$$
+
+Likewise, the gauge group in DFT is the orthogonal group $O(D,D)$, and there is no distinction between vectors and 1-forms.
+Hence, the DFT covariant derivative is defined as
+
+$$\nabla_{A}T^{B}=\partial_{A}T^{B}+\Gamma_{A}{}^{B}{}_{C}T^{C}-w\Gamma^{C}{}_{CA}T^{B},$$
+
+where $w$ denotes the weight of a tensor density.
+Notice that since the gauge group in DFT is the orthogonal group, the connection is antisymmetric in the last two indices:
+
+$$\omega_{\mu}{}^{ab}+\omega_{\mu}{}^{ba}=0\qquad\Longleftrightarrow\qquad\Gamma_{ABC}+\Gamma_{ACB}=0.$$
 
 
+### 1. How to Construct the DFT Connection
+
+Let us consider the following covariant derivative:
+
+$$\begin{aligned}
+\nabla_{A}(P_{BC}T^{C})&=\partial_{A}(P_{BC}T^{C})+\Gamma_{AB\mathring{C}}T^{\mathring{C}}
+\\
+&=P_{BC}\partial_{A}T^{C}+T^{C}\partial_{A}P_{BC}+\Gamma_{AB\mathring{C}}T^{\mathring{C}}.
+\end{aligned}$$
+
+Using the metric compatibility $\nabla_{A}P_{BC}=0$, we recast the left-hand side as
+
+$$P_{BC}\nabla_{A}T^{C}=P_{BC}\partial_{A}T^{C}+\Gamma_{A\mathring{B}C}T^{C}.$$
+
+Then, we obtain
+
+$$\Gamma_{A\mathring{B}C}T^{C}=T^{C}\partial_{A}P_{BC}+\Gamma_{AB\mathring{C}}T^{\mathring{C}}.$$
+
+And, we apply the decomposition $T_{A}=T_{\mathring{A}}+T_{\overline{A}}$:
+
+$$\Gamma_{A\mathring{B}\mathring{C}}T^{\mathring{C}}+\Gamma_{A\mathring{B}\overline{C}}T^{\overline{C}}=T^{\mathring{C}}\partial_{A}P_{BC}+T^{\overline{C}}\partial_{A}P_{BC}+\Gamma_{A\mathring{B}\mathring{C}}T^{\mathring{C}}+\Gamma_{A\overline{B}\mathring{C}}T^{\mathring{C}}.$$
+
+Simplifying both sides, we have the follownig result:
+
+$$T^{\overline{C}}(\Gamma_{A\mathring{B}\overline{C}}-\partial_{A}P_{BC})-T^{\mathring{C}}(\Gamma_{A\overline{B}\mathring{C}}+\partial_{A}P_{BC})=0.$$
+
+Recall that $\partial_{A}P_{BC}=\frac{1}{2}\partial_{A}H_{BC}$, and
+
+$$\partial_{A}H_{BC}=(P\partial_{A}H\overline{P})\_{BC}+(\overline{P}\partial_{A}HP)\_{BC}=(P\partial_{A}H\overline{P})\_{BC}+(P\partial_{A}H\overline{P})\_{CB},$$
+
+where we used the fact that $P_{AB}$ is a symmetric matrix.
+Then, we conclude that
+
+$$T^{\overline{C}}\left[\Gamma_{A\mathring{B}\overline{C}}-\frac{1}{2}(P\partial_{A}H\overline{P})_{BC}\right]-T^{\mathring{C}}\left[\Gamma_{A\overline{B}\mathring{C}}+\frac{1}{2}(P\partial_{A}H\overline{P})\_{CB}\right]=0.$$
+
+Therefore, we obtain the projected components of the DFT Christoffel connection:
+
+$$\Gamma_{A\mathring{B}\overline{C}}=\frac{1}{2}(P\partial_{A}H\overline{P})\_{BC},\qquad\Gamma_{A\overline{B}\mathring{C}}=-\frac{1}{2}(P\partial_{A}H\overline{P})\_{CB}.$$
+
+Using the same method, we obtain
+
+$$\Gamma_{\overline{A}\mathring{B}\mathring{C}}=\frac{1}{2}(P\partial_{\mathring{C}}H\overline{P})\_{BA}-\frac{1}{2}(P\partial_{\mathring{B}}H\overline{P})\_{CA},
+\qquad\Gamma_{\mathring{A}\overline{B}\overline{C}}=\frac{1}{2}(P\partial_{\overline{B}}H\overline{P})\_{AC}-\frac{1}{2}(P\partial_{\overline{C}}H\overline{P})\_{AB}.$$
+
+If we perform the same projection to all three indices, we have
+
+$$\Gamma_{\mathring{A}\mathring{B}\mathring{C}}=\frac{2}{D-1}(P_{AC}\mathring{\delta}\_{B}-P_{AB}\mathring{\delta}\_{C}),\qquad
+\Gamma_{\overline{A}\overline{B}\overline{C}}=\frac{2}{D-1}(\overline{P}\_{AC}\overline{\delta}\_{B}-\overline{P}\_{AB}\overline{\delta}\_{C}),$$
+
+where
+
+$$\mathring{\delta}\_{B}=\partial_{\mathring{B}}d+\frac{1}{2}\Gamma^{\overline{E}}{}\_{\overline{E}\mathring{B}},\qquad
+\overline{\delta}\_{B}=\partial_{\overline{B}}d+\frac{1}{2}\Gamma^{\mathring{E}}{}\_{\mathring{E}\overline{B}}.$$
+
+Since we have completely constructed the DFT Christoffel connection, the DFT covariant derivative $\nabla_{A}T_{B}$ can also be well-defined.
+However, it is not tensorial (i.e., $`\delta_{\xi}(\nabla_{A}T_{B})\ne\hat{L}_{\xi}(\nabla_{A}T_{B})`$), but the following projections are only tensorial:
+
+$$\nabla_{\mathring{A}}T^{\overline{B}\overline{C}\overline{D}},\qquad\nabla_{\overline{A}}T^{\mathring{B}\mathring{C}\mathring{D}},\qquad\nabla_{\mathring{A}}T^{\mathring{A}\overline{B}\overline{C}},\qquad\nabla_{\overline{A}}T^{\overline{A}\mathring{B}\mathring{C}}.$$
+
+In DFT, the metric compatibility includes the DFT dilaton:
+
+$$\nabla_{A}J_{AB}=\nabla_{A}H_{BC}=0,\qquad\nabla_{A}d=\partial_{A}+\frac{1}{2}\Gamma^{B}{}_{BA}=0.$$
+
+Also, the DFT Christoffel symbol has the following properties:
+
+$$\Gamma_{ABC}+\Gamma_{ACB}=0,\qquad\Gamma_{ABC}+\Gamma_{BCA}+\Gamma_{CAB}=0.$$
+
+For the other properties, refer to `arXiv:2505.10163 [gr-qc]`. The last relation (cyclic symmtry on the indices $ABC$) is the torsion-free condition, which allows us to replace the partial derivatives by the covariant derivatives in the generalized Lie derivative:
+
+$$\hat{L}\_{\xi}T^{A}=\xi^{B}\nabla_{B}T^{A}-T^{B}\nabla_{B}\xi^{A}+T_{B}\nabla_{A}\xi^{B}.$$
+
+- Example: DFT Yang--Mills theory
+
+In DFT, the field strength in gauge theory is not a tensor:
+
+$$F_{AB}=\nabla_{A}A_{B}-\nabla_{B}A_{A}.$$
+
+Hence, we use its projected components to construct the Lagrangian:
+
+$$L=e^{-2d}F_{\mathring{A}\overline{B}}F^{\mathring{A}\overline{B}}=P^{AC}\overline{P}{}^{BC}F_{AB}F_{CD}.$$
 
 
-## IX. DFT Curvature
+### 2. Master Derivative
+
+In general relativity, the covariant derivative accompanies with the Christoffel symbol and the spin connection:
+
+$$\nabla_{\mu}e_{\nu}^{p}=\partial_{\mu}e_{\nu}^{p}-\Gamma_{\mu\nu}^{\lambda}e_{\lambda}^{p}+\omega_{\mu}{}^{p}{}_{q}e_{\nu}^{q}.$$
+
+However, in DFT, we distinguish the following two expressions:
+
+$$\begin{aligned}
+\nabla_{A}V_{Bp}&=\partial_{A}V_{Bp}+\Gamma_{AB}{}^{C}V_{Cp},
+\\
+D_{A}V_{Bp}&=\partial_{A}V_{Bp}+\Gamma_{AB}{}^{C}V_{Cp}+\Phi_{Ap}{}^{q}V_{Bq}.
+\end{aligned}$$
+
+The first on $\nabla_{A}$ is the DFT covariant derivative, which only contains the DFT Christoffel connection, not the DFT spin connection.
+The latter one $D_{A}$ is called the *master derivative*, which also accompanies with the DFT spin connection $\Phi_{Apq}$.
+Note that the master derivative should be written in the calligraphic letter, but due to the rendering limit of Markdown documents in GitHub, we use a roman D.
+Also, notice the fact that, DFT has two different local Lorentz indices $p$ and $\overline{p}$, hence it has two different spin connections:
+
+$$\Phi_{Apq},\qquad\overline{\Phi}\_{A\overline{p}\overline{q}},$$
+
+which acts as
+
+$$D_{A}T_{Bp\overline{q}}=\partial_{A}T_{Bp\overline{q}}+\Gamma_{AB}{}^{C}T_{Cp\overline{q}}+\Phi_{Ap}{}^{r}T_{Br\overline{q}}+\overline{\Phi}_{A\overline{q}}{}^{\overline{s}}T_{Bp\overline{s}}.$$
+
+The DFT spin connection is defined from the metric compatibility:
+
+$$D_{A}V_{Bp}=\nabla_{A}V_{Bp}+\Phi_{Ap}{}^{q}V_{Bq},$$
+
+which determines
+
+$$\Phi_{Apq}=V^{B}{}\_{p}\nabla_{A}V_{Bq},\qquad\overline{\Phi}_{A\overline{p}\overline{q}}=\overline{V}{}^{B}{}\_{\overline{p}}\nabla_{A}\overline{V}\_{B\overline{q}}.$$
+
+Then, we can show that $\Phi_{Apq}$ is antisymmetric in $p\leftrightarrow q$.
+For the $SO(1,D-1)$ and $SO(D-1,1)$ spinors, the spin connections act as
+
+$$D_{A}\psi=\partial_{A}\psi+\frac{1}{4}\Phi_{Apq}\gamma^{pq}\psi,\qquad D_{A}\psi'=\partial_{A}\psi'+\frac{1}{4}\overline{\Phi}\_{A\overline{p}\overline{q}}\overline{\gamma}{}^{\overline{p}\overline{q}}\psi',$$
+
+where $\gamma^{pq}=\gamma^{[p}\gamma^{q]}$. For each spinor, the gravitino Killing spinor equations are given as
+
+$$D_{\overline{p}}\varepsilon=0,\qquad D_{p}\varepsilon'=0.$$
+
+Also, the dilatino Killing spinor equations are
+
+$$\gamma^{p}D_{p}\varepsilon=0,\qquad\overline{\gamma}{}^{\overline{p}}D_{\overline{p}}\varepsilon'=0.$$
+
+Here, we focus on the gravitino Killing spinor equation:
+
+$$D_{\overline{p}}\varepsilon=\partial_{\overline{p}}\varepsilon+\frac{1}{4}\Phi_{\overline{p}qr}\gamma^{qr}\varepsilon=0,$$
+
+where $\partial_{\overline{p}}=\overline{V}{}^{A}{}\_{\overline{p}}\partial_{A}$.
+In the DFT Christoffel connection, the DFT dilaton is included only in $\Gamma_{\mathring{A}\mathring{B}\mathring{C}}$ and $\Gamma_{\overline{A}\overline{B}\overline{C}}$, which do not contribute to $\Phi_{\overline{p}qr}$.
+Therefore, if the generalized metric is decomposed as a block matrix form;
+
+$$H_{\mathrm{10d}}=H_{\mathrm{AdS}\_{5}}\oplus H_{S^{5}}\qquad\text{in AdS}_{5}\times S^{5},$$
+
+then it is enough to solve the gravitino Killing spinor equations with the lower-dimensional gamma matrices.
+However, for the dilatino Killing spinor equations, the full 10d gamma matrices are required.
 
 
+## IX. Concluding Remarks
 
+In this tutorial, I have introduced the basic concepts and computational techniques used in DFT.
+The DFT concepts that are not covered in this tutorial are as follows:
 
+- DFT curvature
 
+- DFT energy-momentum tensor
 
-## X. Einstein Double Field Equations
+- Einstein Double Field Equation
 
+- Linear perturbation
 
-
-
-## XI. Linear Perturbation
-
-
-
-
-
-$$\delta_{\mathrm{p}}^{2}H_{AB}=\delta_{\mathrm{p}}h_{AB}=-\frac{1}{2}h^{CD}\delta(H_{AC}H_{BD}).$$
-
-
-
-
-1
+First, DFT curvature is not included in this tutorial because it does not require much explanation.
+The other concepts go beyond the fundamental level, so they are not covered here.
+Detailed explanations of them can be found in `arXiv:2505.10163 [gr-qc]` and references therein.
