@@ -511,7 +511,7 @@ $$D_{A}T_{Bp\overline{q}}=\partial_{A}T_{Bp\overline{q}}+\Gamma_{AB}{}^{C}T_{Cp\
 
 The DFT spin connection is defined from the metric compatibility:
 
-$$D_{A}V_{Bp}=\nabla_{A}V_{Bp}+\Phi_{Ap}{}^{q}V_{Bq},$$
+$$D_{A}V_{Bp}=\nabla_{A}V_{Bp}+\Phi_{Ap}{}^{q}V_{Bq}=0,$$
 
 which determines
 
