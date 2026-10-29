@@ -456,10 +456,14 @@ where
 $$\mathring{\delta}\_{B}=\partial_{\mathring{B}}d+\frac{1}{2}\Gamma^{\overline{E}}{}\_{\overline{E}\mathring{B}},\qquad
 \overline{\delta}\_{B}=\partial_{\overline{B}}d+\frac{1}{2}\Gamma^{\mathring{E}}{}\_{\mathring{E}\overline{B}}.$$
 
+> In fact, some components of $\Gamma_{ABC}$ remain undetermined under the metric compatibility. Hence, we need another projection condition with a 6-index projector (see `arXiv:2505.10163 [gr-qc]`) to completely determine $\Gamma_{ABC}$.
+
 Since we have completely constructed the DFT Christoffel connection, the DFT covariant derivative $\nabla_{A}T_{B}$ can also be well-defined.
 However, it is not tensorial (i.e., $`\delta_{\xi}(\nabla_{A}T_{B})\ne\hat{L}_{\xi}(\nabla_{A}T_{B})`$), but the following projections are only tensorial:
 
 $$\nabla_{\mathring{A}}T^{\overline{B}\overline{C}\overline{D}},\qquad\nabla_{\overline{A}}T^{\mathring{B}\mathring{C}\mathring{D}},\qquad\nabla_{\mathring{A}}T^{\mathring{A}\overline{B}\overline{C}},\qquad\nabla_{\overline{A}}T^{\overline{A}\mathring{B}\mathring{C}}.$$
+
+> This non-tensorial nature is because we have imposed the projection condition with 6-index projector. From the reason, the DFT Christoffel connection is called the semi-covariant connection. There exists another method to construct the DFT connection, but it does not yield a well-defined fermion.
 
 In DFT, the metric compatibility includes the DFT dilaton:
 
