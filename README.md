@@ -308,12 +308,12 @@ $$\hat{L}\_{\xi}T^{A}=\xi^{B}\partial\_{B}T^{A}-T^{B}\partial\_{B}\xi^{A}+T\_{B}
 The doubled index $A$ consists of the upper index $(\cdots)^{\mu}$ and the lower index $(\cdots)\_{\mu}$.
 First, taking the upper-index component $(\cdots)^{\mu}$ of the doubled index $A$ on both sides of the above equation, we obtain the following:
 
-$$\hat{L}\_{\xi}T^{\mu}=\xi^{B}\partial\_{B}T^{\mu}-T^{B}\partial\_{B}\xi^{A}.$$
+$$\hat{L}\_{\xi}T^{\mu}=\xi^{B}\partial\_{B}T^{\mu}-T^{B}\partial\_{B}\xi^{\mu}.$$
 
 In the above equation, we used the section condition $\partial^{\mu}=0$.
 Since the Einstein summation convention in DFT reads $(\cdots)\_{B}(\cdots)^{B}=(\cdots)\_{\nu}(\cdots)^{\nu}+(\cdots)^{\nu}(\cdots)\_{\nu}$, applying this convention gives the following:
 
-$$\hat{L}\_{\xi}T^{\mu}=\xi^{\nu}\partial\_{\nu}T^{\mu}-T^{\nu}\partial\_{\nu}\xi^{A}=L\_{\xi}T^{\mu}.$$
+$$\hat{L}\_{\xi}T^{\mu}=\xi^{\nu}\partial\_{\nu}T^{\mu}-T^{\nu}\partial\_{\nu}\xi^{\mu}=L\_{\xi}T^{\mu}.$$
 
 In other words, for a tensor with an upper index, $T^{\mu}$, the generalized Lie derivative is the same as the ordinary Lie derivative.
 Next, for a tensor with a lower index, $T\_{\mu}$, we obtain
